@@ -1,0 +1,30 @@
+:root {
+    --bg-main: #36393F;           /* Discord main dark background */
+    --bg-secondary: #2F3136;       /* Discord slightly darker (e.g., for sidebars/panels) */
+    --bg-tertiary: #202225;        /* Discord even darker (e.g., for embedded elements, code blocks) */
+    --text-primary: #DCDDDE;       /* Discord primary text (light grey/off-white) */
+    --text-secondary: #B9BBBE;     /* Discord secondary text (medium grey) */
+    --text-muted: #8E9297;         /* Discord muted text (e.g., for dates, some meta) */
+    --accent-primary: #5865F2;     /* Discord Blurple */
+    --accent-hover: #7289DA;       /* Lighter Blurple for hover */
+    --border-color-subtle: #40444B; /* Discord subtle borders, or darker like #2D2F34 */
+    --interactive-normal: #40444B; /* For non-active UI elements, like nav BG */
+    --interactive-hover: #4F545C;   /* Hover for UI elements */
+    --interactive-active: var(--accent-primary); /* Active state for UI elements */
+
+    /* Font variables - sizes will be adjusted in specific selectors */
+    --font-title: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-date: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
+    --font-mono: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace; /* General monospace */
+    --transition-smooth: 0.2s ease-in-out; /* Slightly faster for a snappier UI feel */
+
+    /* Font size variables (new - for easier adjustment) */
+    --fs-base: 0.9rem; /* Base font size for body - smaller */
+    --fs-sm: 0.8rem;   /* Smaller text */
+    --fs-xs: 0.75rem;  /* Extra small, e.g., for dates */
+
+    --fs-h1: clamp(1.8rem, 5vw, 2.5rem); /* Main page title */
+    --fs-h2-entry: clamp(1.1rem, 3vw, 1.4rem); /* Blog entry titles */
+    --fs-p-entry: clamp(0.85rem, 2.5vw, 0.95rem); /* Blog entry description */
+}
