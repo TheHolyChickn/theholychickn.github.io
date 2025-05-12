@@ -1,30 +1,63 @@
-:root {
-    --bg-main: #36393F;           /* Discord main dark background */
-    --bg-secondary: #2F3136;       /* Discord slightly darker (e.g., for sidebars/panels) */
-    --bg-tertiary: #202225;        /* Discord even darker (e.g., for embedded elements, code blocks) */
-    --text-primary: #DCDDDE;       /* Discord primary text (light grey/off-white) */
-    --text-secondary: #B9BBBE;     /* Discord secondary text (medium grey) */
-    --text-muted: #8E9297;         /* Discord muted text (e.g., for dates, some meta) */
-    --accent-primary: #5865F2;     /* Discord Blurple */
-    --accent-hover: #7289DA;       /* Lighter Blurple for hover */
-    --border-color-subtle: #40444B; /* Discord subtle borders, or darker like #2D2F34 */
-    --interactive-normal: #40444B; /* For non-active UI elements, like nav BG */
-    --interactive-hover: #4F545C;   /* Hover for UI elements */
-    --interactive-active: var(--accent-primary); /* Active state for UI elements */
+/* assets/css/theme.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&family=Roboto+Mono:wght@400&display=swap');
 
-    /* Font variables - sizes will be adjusted in specific selectors */
+:root {
+    --bg-main: #36393F;
+    --bg-secondary: #2F3136;
+    --bg-tertiary: #202225;
+    --text-primary: #DCDDDE;
+    --text-secondary: #B9BBBE;
+    --text-muted: #8E9297;
+    --accent-primary: #5865F2;
+    --accent-hover: #7289DA;
+    --border-color-subtle: #40444B;
+    --interactive-normal: #40444B;
+    --interactive-hover: #4F545C;
+    --interactive-active: var(--accent-primary);
+
     --font-title: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-date: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
-    --font-mono: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace; /* General monospace */
-    --transition-smooth: 0.2s ease-in-out; /* Slightly faster for a snappier UI feel */
+    --font-mono: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
+    --transition-smooth: 0.2s ease-in-out;
 
-    /* Font size variables (new - for easier adjustment) */
-    --fs-base: 0.9rem; /* Base font size for body - smaller */
-    --fs-sm: 0.8rem;   /* Smaller text */
-    --fs-xs: 0.75rem;  /* Extra small, e.g., for dates */
+    --fs-base: 0.9rem;
+    --fs-sm: 0.8rem;
+    --fs-xs: 0.75rem;
+    --fs-h1: clamp(1.8rem, 5vw, 2.5rem);
+    --fs-h2-entry: clamp(1.1rem, 3vw, 1.4rem);
+    --fs-p-entry: clamp(0.85rem, 2.5vw, 0.95rem);
+}
 
-    --fs-h1: clamp(1.8rem, 5vw, 2.5rem); /* Main page title */
-    --fs-h2-entry: clamp(1.1rem, 3vw, 1.4rem); /* Blog entry titles */
-    --fs-p-entry: clamp(0.85rem, 2.5vw, 0.95rem); /* Blog entry description */
+/* Basic Global Resets and Body Defaults */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; /* For rem unit calculation */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-size: var(--fs-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0; /* Ensure body margin is reset here */
+}
+
+a { /* Basic link styling - can be overridden */
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-smooth);
+}
+
+a:hover {
+    color: var(--accent-hover);
 }

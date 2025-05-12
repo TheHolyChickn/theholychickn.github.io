@@ -1,13 +1,5 @@
-body {
-    font-family: var(--font-body);
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    margin: 0;
-    font-size: var(--fs-base);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+/* assets/css/blog.css */
+/* :root variables are assumed to be loaded from theme.css */
 
 .site-wrapper {
     display: flex;
@@ -16,31 +8,32 @@ body {
 
 /* Sidebar Navigation (Left Column) */
 .sidebar-nav {
-    width: 260px; /* Fixed width for the sidebar */
+    width: 260px;
     background-color: var(--bg-secondary);
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     border-right: 1px solid var(--border-color-subtle);
-    position: fixed; /* Fixed position */
+    position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
-    overflow-y: auto; /* Scroll if content overflows */
+    overflow-y: auto;
 }
 
 .sidebar-header {
     margin-bottom: 1.5rem;
-    text-align: left;
+    text-align: center;
 }
 
 .site-logo-link {
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: 1.4rem; /* Smaller logo */
+    font-size: 1.4rem;
     color: var(--text-primary);
     text-decoration: none;
     transition: color var(--transition-smooth);
+    text-align: center;
 }
 .site-logo-link:hover {
     color: var(--accent-primary);
@@ -56,7 +49,7 @@ body {
     display: block;
     font-family: var(--font-body);
     font-weight: 500;
-    font-size: var(--fs-base); /* Using base size for nav items */
+    font-size: var(--fs-base);
     color: var(--text-secondary);
     text-decoration: none;
     padding: 0.6rem 0.75rem;
@@ -72,16 +65,16 @@ body {
 
 .main-navigation .nav-item.active {
     background-color: var(--interactive-active);
-    color: #FFFFFF; /* White text on active blurple */
+    color: #FFFFFF;
     font-weight: 600;
 }
 
-.sidebar-page-title {
-    margin-top: 2rem; /* Space above "Writings" */
-    padding-left: 0.75rem; /* Align with nav items */
+.sidebar-page-title-container { /* New container for the H1 in the sidebar */
+    margin-top: 2rem;
+    padding-left: 0.75rem;
 }
 
-.blog-main-title { /* Was .blog-title, now specific to sidebar */
+.sidebar-blog-title { /* Specific class for H1 "Posts" if it remains in sidebar */
     font-family: var(--font-title);
     font-size: var(--fs-h1);
     color: var(--text-primary);
@@ -89,22 +82,39 @@ body {
 }
 
 .sidebar-footer {
-    margin-top: auto; /* Pushes footer to bottom of sidebar */
+    margin-top: auto;
     padding: 1rem 0.75rem;
     font-size: var(--fs-sm);
     color: var(--text-muted);
     text-align: left;
 }
+.sidebar-footer #year { /* Ensure year span is accessible by ID */
+    /* No specific style needed unless you want to change its appearance */
+}
 
 
 /* Blog Content Area (Right Column) */
 .blog-content-area {
-    flex-grow: 1; /* Takes remaining space */
-    padding: 2rem 2.5rem; /* Padding for content */
+    flex-grow: 1;
+    padding: 2rem 2.5rem;
     margin-left: 260px; /* Offset by sidebar width */
-    overflow-y: auto; /* Allow scrolling for content */
-    max-width: calc(100% - 260px); /* Ensure it doesn't overflow with fixed sidebar */
+    /* overflow-y: auto; -- Let natural scroll happen */
+    /* max-width: calc(100% - 260px); -- This can sometimes cause issues, flex-grow should handle it */
 }
+
+.blog-page-header { /* New: For the "Posts" title in the main content area */
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-subtle);
+}
+
+.blog-page-main-title { /* New: For the H1 "Posts" in the main content area */
+    font-family: var(--font-title);
+    font-size: var(--fs-h1); /* Use consistent H1 size */
+    color: var(--text-primary);
+    margin: 0;
+}
+
 
 .loading-message, .no-posts-message {
     font-family: var(--font-body);
@@ -115,7 +125,7 @@ body {
 }
 
 .blog-post-entry {
-    margin-bottom: 2rem; /* Smaller space between posts */
+    margin-bottom: 2rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border-color-subtle);
 }
@@ -126,55 +136,34 @@ body {
 
 .post-meta {
     font-family: var(--font-date);
-    font-size: var(--fs-xs); /* Extra small for dates */
+    font-size: var(--fs-xs);
     color: var(--text-muted);
-    margin-bottom: 0.3rem; /* Less space */
+    margin-bottom: 0.3rem;
     display: block;
 }
 
-.post-title { /* This is the link wrapping the h2 */
+.post-title {
     text-decoration: none;
-    display: block; /* Make the link block */
-    margin-bottom: 0.4rem; /* Less space */
+    display: block;
+    margin-bottom: 0.4rem;
 }
 
-.post-title h2 { /* Actual h2 for the title text */
+.post-title h2 {
     font-family: var(--font-title);
-    font-size: var(--fs-h2-entry); /* Smaller entry titles */
+    font-size: var(--fs-h2-entry);
     color: var(--text-primary);
-    margin: 0; /* Remove default h2 margin */
+    margin: 0;
     line-height: 1.3;
     transition: color var(--transition-smooth);
 }
 .post-title:hover h2 {
-    color: var(--accent-primary);
-    /* The accent-hover for a different color on hover would be more complex here
-       as the link itself doesn't have text, or apply hover to h2 directly.
-       For simplicity, direct accent-primary. If you want the green/blue shift,
-       we'd need to target the h2 on link hover.
-    */
+    color: var(--accent-primary); /* Standard hover to primary accent */
 }
-/* For the unique blue->green hover, we can do:
-.post-title:hover h2 { color: var(--accent-hover); }
-.post-title       h2 { color: var(--accent-primary); transition: color var(--transition-smooth); }
-.post-title:not(:hover) h2 { color: var(--text-primary); }
-Let's try a simpler hover first:
-*/
-.post-title:hover h2 {
-    color: var(--accent-primary); /* Changes to blue on hover */
-}
-/* If you want the blue to green, you could style the h2 directly and change its color based on link state,
-   or use JS to add a class. For CSS only, a trick is needed or a simpler two-state hover.
-   Let's use your --accent-primary for default link color and --accent-hover for its hover.
-   So, the title needs to *be* the link color to begin with, if the link is the main interaction.
-   But that's not how castel.dev looks.
-   Castel.dev: Title is primary text color, on hover it becomes accent.
-*/
 
 
 .post-description {
     font-family: var(--font-body);
-    font-size: var(--fs-p-entry); /* Smaller entry descriptions */
+    font-size: var(--fs-p-entry);
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -183,30 +172,31 @@ Let's try a simpler hover first:
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .site-wrapper {
-        flex-direction: column; /* Stack sidebar on top of content */
+        flex-direction: column;
     }
     .sidebar-nav {
-        position: static; /* No longer fixed */
+        position: static;
         width: 100%;
-        height: auto; /* Adjust height */
+        height: auto;
         border-right: none;
         border-bottom: 1px solid var(--border-color-subtle);
-        padding: 1rem; /* Adjust padding */
+        padding: 1rem;
     }
     .sidebar-header {
         display: flex;
-        justify-content: space-between; /* Allows for a potential mobile menu button */
+        justify-content: space-between;
         align-items: center;
     }
-    .sidebar-footer { display: none; } /* Hide sidebar footer on mobile */
-    .sidebar-page-title {
+    .sidebar-footer { display: none; }
+    .sidebar-page-title-container { /* Adjust if H1 "Posts" stays in sidebar on mobile */
         padding-left: 0;
         text-align: center;
         margin-top: 1rem;
     }
+
     .main-navigation ul {
         display: flex;
-        justify-content: center; /* Center nav items */
+        justify-content: center;
         gap: 0.5rem;
     }
     .main-navigation .nav-item {
@@ -215,8 +205,10 @@ Let's try a simpler hover first:
     }
 
     .blog-content-area {
-        margin-left: 0; /* Remove margin when stacked */
-        padding: 1.5rem 1rem; /* Adjust padding */
-        max-width: 100%;
+        margin-left: 0;
+        padding: 1.5rem 1rem;
+    }
+    .blog-page-header { /* Center title on mobile if it's in content area */
+        text-align: center;
     }
 }
