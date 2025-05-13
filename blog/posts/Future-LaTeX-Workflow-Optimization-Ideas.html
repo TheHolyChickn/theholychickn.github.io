@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/theme.css">
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <link rel="stylesheet" href="/assets/css/post.css">
+
+    <title>theholychickn-blog-1</title>
+</head>
+<body>
+<div class="site-wrapper">
+    <aside class="sidebar-nav">
+        <div class="sidebar-header">
+            <a href="/index.html" class="site-logo-link">TheHolyChickn</a>
+        </div>
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="/index.html" class="nav-item">Home</a></li>
+                <li><a href="/projects/projects.html" class="nav-item">Projects</a></li>
+                <li><a href="/blog/blog.html" class="nav-item">Blog</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-section-title-container"> <h2 class="sidebar-section-title">Table of Contents</h2> </div>
+        <nav class="toc-navigation" id="tableOfContentsContainer">
+        </nav>
+        <footer class="sidebar-footer">
+            <p>&copy; The Holy Chicken<span id="year"></span></p> </footer>
+    </aside>
+
+    <main class="blog-content-area">
+        <article class="article-content-wrapper">
+            <header class="article-header">
+                <h1 class="article-title">Future LaTeX Workflow Optimization Ideas</h1>
+                <p class="article-meta">
+                    <span>May 14, 2025</span>
+                    <span>&bull; Tags: LaTeX, Workflow</span>
+                </p>
+            </header>
+
+            <div class="article-content" id="mainArticleContent">
+                <p>I have a lot of ideas for projects to make or things to implement, but often don't have time to implement any of these.
+                I have decided to begin listing my ideas here, partially as a sort of todo list for myself, but partially in the hopes that
+                someone else (who is hopefully better than me at coding) will like the idea enough to make it themselves, before I get around
+                to making it next year.</p>
+
+                <p>This article assumes familiarity with some of my other blog posts, or at least a working knowledge of my LaTeX setup.</p>
+
+                <h2 id="support-for-projects">Support for Projects, GUI-Based Solution</h2>
+                <p>I often engage in projects outside of coursework, such as independent readings, that would benefit greatly from being integrated
+                into my university setup as if they were courses on their own. I was actually thinking of a gui solution insted of pure cli,
+                likely using <a href="https://github.com/aylur/ags">ags</a> and <a href="https://github.com/aylur/astral">astral</a>. The gui
+                solution would implement the following:</p>
+                <ul>
+                    <li>Overview of all current classes and projects</li>
+                    <li>A button or something to access <i>all</i> course/projects, including old and archived ones</li>
+                    <li>A readout of the active course, today's course schedule, and a list of homeworks due within the next week</li>
+                    <li>A button or something to create a new project, which would then run through a series of short prompts to gather
+                    information about the new project, before generating it from a predefined template</li>
+                    <li>A "new semester" button, which would run the user through a series of prompts, asking for
+                        <ul>
+                            <li>the new <code>ROOT</code> directory, which would then be set in <code>config.py</code> (directory is created if it does not exist)</li>
+                            <li>the number of courses, and then the names of each course (directories for each course are created if they do not exist)</li>
+                            <li>the necessary information for each course in order to complete the <code>info.yaml</code> for each one</li>
+                        </ul>
+                    and then it would create all relevant files and activate all courses, just like the current <code>init-all-courses.py</code> does</li>
+                    <li>There could be a new <code>config.json</code> file created, which would store some important information instead of having to enter
+                    it into <code>config.py</code> every time</li>
+                </ul>
+                This could be bundled into a package on the AUR, and could even come with a refactor of Castel's scripts into Rust or something.
+
+                <h2 id="dynamic-preamble-selection">Dynamic Preamble Selection</h2>
+                <p>My preambles are fairly modular, and individual preamble file components can be easily added, swapped with others, or removed
+                altogether. Although this modularity is very nice, it is annoying to have to manually import a sequence of preamble files for
+                each document. The obvious solution is to create a way to dynamically import preamble files. It would probably be prudent to
+                create a central directory of preamble files, and a json file listing each preamble file, along with a <i>very</i> short
+                description of it, which could show up in whatever menu we use to select the relevant preamble file.</p>
+
+                <p>From here, we would need to construct some kind of menu. I would suggest making a nvim plugin and creating the menu directly
+                in nvim, but that feels impractical. I may very well be wrong here; I have never written an nvim plugin. However, I think using
+                something like rofi would be the more natural choice here. </p>
+
+                <h2 id="section-three-lists-and-quotes">Lists and Quotes</h2>
+                <ul>
+                    <li>First list item for section three.</li>
+                    <li>Second list item with <code>inline_code_example()</code>.</li>
+                    <li>Third list item.</li>
+                </ul>
+
+                <blockquote>
+                    <p>"This is an insightful quote that adds a lot of value to the article. It might be a bit longer to show how blockquotes handle multiple lines of text."</p>
+                    <p>- A Wise Person</p>
+                </blockquote>
+                <hr>
+                <p>Final concluding thoughts and remarks. This section concludes the main content of the post.</p>
+            </div>
+        </article>
+    </main>
+</div>
+
+<script src="/assets/js/year.js"></script>
+<script src="/assets/js/toc.js"></script> </body>
+</html>
