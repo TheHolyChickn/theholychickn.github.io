@@ -79,21 +79,24 @@
 
                 <p>From here, we would need to construct some kind of menu. I would suggest making a nvim plugin and creating the menu directly
                 in nvim, but that feels impractical. I may very well be wrong here; I have never written an nvim plugin. However, I think using
-                something like rofi would be the more natural choice here. </p>
-
-                <h2 id="section-three-lists-and-quotes">Lists and Quotes</h2>
+                something like rofi would be the more natural choice here.</p>
                 <ul>
-                    <li>First list item for section three.</li>
-                    <li>Second list item with <code>inline_code_example()</code>.</li>
-                    <li>Third list item.</li>
+                    <li>Active preambles could be indicated by marking them as urgent or something maybe</li>
+                    <li>There are obviously different classes of preamble files, and listing all of them would be difficult. We can have a
+                    list of categories, and each one expands into a list of valid preambles. This could be pre-configured in the config file.
+                    I know this is possible without closing the rofi menu I need to find the code for it though</li>
+                    <li>Selecting a preamble would input <code>\input{/path/to/selected/file}</code> in a specified section of the preamble,
+                    likely defined by wrapping it in special comments. There could be an option to autogenerate these comments as well.
+                    Deselecting a preamble would remove it from the file</li>
+                    <li>This would be a combo of nvim configging and external scripts - external scripts to manage the rofi environment and
+                    text to be inputted, and a keybind defined in nvim which would run the script, then insert the relevant code when prompted</li>
+                    <li>Incorporating with the previous idea, we could also have a config file for each project, and the active preambles could
+                    be listed there. It might make implementation cleaner, but would require a defined project environment to implement</li>
                 </ul>
 
-                <blockquote>
-                    <p>"This is an insightful quote that adds a lot of value to the article. It might be a bit longer to show how blockquotes handle multiple lines of text."</p>
-                    <p>- A Wise Person</p>
-                </blockquote>
-                <hr>
-                <p>Final concluding thoughts and remarks. This section concludes the main content of the post.</p>
+                <h2 id="dynamic-snippets">Dynamic Snippets</h2>
+                im tired ill finish this in the morning basically this is the same thing as the preambles but with snippets. will need to call a luasnip
+                command to reload snippets within a given nvim instance since they only load at launch
             </div>
         </article>
     </main>
