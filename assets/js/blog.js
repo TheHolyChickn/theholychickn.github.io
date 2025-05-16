@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const loadingMessage = blogPostListContainer.querySelector('.loading-message');
 
     // Adjust the path to your blog-posts.json file as needed
-    // This path is relative to the HTML file loading this script (blog/blog.html)
+    // This path is relative to the HTML file loading this script (blog/index.html)
     const jsonPath = 'posts.json'; // This should correctly point to /blog/posts.json
 
     fetch(jsonPath)
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const titleLink = document.createElement('a');
                 // Ensure post.link is relative to the blog page, or an absolute path
-                // If blog.html is in /blog/ and posts are in /blog/posts/, then "posts/..." is correct.
+                // If index.html is in /blog/ and posts are in /blog/posts/, then "posts/..." is correct.
                 titleLink.href = post.link;
                 titleLink.className = 'post-title';
 
