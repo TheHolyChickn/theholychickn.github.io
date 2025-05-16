@@ -71,11 +71,10 @@
                 This could be bundled into a package on the AUR, and could even come with a refactor of Castel's scripts into Rust or something.
 
                 <h2 id="dynamic-preamble-selection">Dynamic Preamble Selection</h2>
-                <p>My preambles are fairly modular, and individual preamble file components can be easily added, swapped with others, or removed
-                altogether. Although this modularity is very nice, it is annoying to have to manually import a sequence of preamble files for
-                each document. The obvious solution is to create a way to dynamically import preamble files. It would probably be prudent to
-                create a central directory of preamble files, and a json file listing each preamble file, along with a <i>very</i> short
-                description of it, which could show up in whatever menu we use to select the relevant preamble file.</p>
+                <p>My preambles are somewhat modular; I have a base preamble file, and a couple different preambles I can choose from for theorem
+                styles, hyperref and code styles, including physics commands, and some conventions such as category names. However, it can be
+                annoying to input a list of multiple preambles for each LaTeX file. The obvious solution is to create a way to dynamically import
+                preamble files, which would be selected based on a universal json that lists all preambles, and a brief description of each one.</p>
 
                 <p>From here, we would need to construct some kind of menu. I would suggest making a nvim plugin and creating the menu directly
                 in nvim, but that feels impractical. I may very well be wrong here; I have never written an nvim plugin. However, I think using
