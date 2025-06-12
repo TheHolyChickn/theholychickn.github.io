@@ -1,0 +1,55 @@
+/* assets/css/projects.css */
+/* :root variables are assumed to be loaded from theme.css */
+
+.project-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+
+.project-card {
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-subtle);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.project-card-title {
+    font-family: var(--font-title);
+    font-size: var(--fs-h2-entry);
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.project-card:hover .project-card-title {
+    color: var(--accent-primary);
+}
+
+.project-card-description {
+    font-family: var(--font-body);
+    font-size: var(--fs-p-entry);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1; /* Ensures description takes up space to align footers */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .project-card-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+    }
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Placeholder Project",
+    "description": "This is a sample project to demonstrate the card layout. Clicking on this card will take you to a dedicated page with a table of contents, just like a blog post.",
+    "link": "posts/placeholder-project.html"
+  },
+  {
+    "title": "Another Cool Project",
+    "description": "A description of another awesome project. This card showcases how the grid layout handles multiple items, adapting to screen size.",
+    "link": "#"
+  },
+  {
+    "title": "My Minecraft Mod",
+    "description": "Information about the Minecraft mod I've worked on. This project has its own detailed page with documentation and download links.",
+    "link": "#"
+  }
+]
