@@ -1,89 +1,133 @@
-.home-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+/* assets/css/home.css */
+
+.home-content-area {
+    padding: 2.5rem;
+}
+
+/* Header section with the main title and description */
+.home-header {
     text-align: center;
-    min-height: 100vh;
-    padding: 1.5rem;
-    overflow-x: hidden;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border-color-subtle);
 }
 
-
-.home-layout .page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 650px;
-}
-
-.home-layout .site-title {
+.home-header .site-title {
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: clamp(2.2rem, 8vw, 3.75rem);
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
     color: var(--text-primary);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     line-height: 1.2;
 }
 
-.home-layout .site-description {
-    font-size: clamp(1rem, 2.5vw, 1.15rem);
+.home-header .site-description {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
     color: var(--text-secondary);
     line-height: 1.7;
-    margin-bottom: 3rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 600px;
+    margin: 0 auto;
 }
-.home-layout .site-description a {
+
+.home-header .site-description a {
     text-decoration: underline;
+    text-decoration-color: var(--accent-primary);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: color var(--transition-smooth), text-decoration-color var(--transition-smooth);
 }
-.home-layout .site-description a:hover {
+
+.home-header .site-description a:hover {
+    color: var(--accent-hover);
+    text-decoration-color: var(--accent-hover);
+}
+
+/* Featured Sections (for both Projects and Blog) */
+.featured-section {
+    margin-bottom: 3rem;
+}
+
+.featured-title {
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color-subtle);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.featured-card {
+    background-color: var(--bg-secondary);
+    border-radius: 6px;
     text-decoration: none;
-}
-
-
-.home-layout .navigation-links {
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-subtle);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    padding: 1.25rem;
 }
 
-.home-layout .nav-link {
-    font-family: var(--font-body);
-    font-weight: 500;
-    font-size: clamp(1rem, 2.8vw, 1.15rem);
-    color: var(--text-secondary);
-    padding: 0.5rem 0.25rem;
-    position: relative;
+.featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-primary);
 }
-.home-layout .nav-link:hover {
+
+.featured-card-title {
+    font-family: var(--font-title);
+    font-size: var(--fs-h2-entry);
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.featured-card:hover .featured-card-title {
     color: var(--accent-primary);
 }
-.home-layout .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-primary);
-    transform: scaleX(0);
-    transform-origin: center;
-    transition: transform var(--transition-smooth);
-}
-.home-layout .nav-link:hover::after {
-    transform: scaleX(0.6);
+
+.featured-card-description {
+    font-family: var(--font-body);
+    font-size: var(--fs-p-entry);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
 }
 
-.home-layout .site-footer {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    width: 100%;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
+.view-all-link {
+    text-align: right;
+    margin-top: 1.25rem;
+}
+
+.view-all-link a {
     color: var(--text-secondary);
-    opacity: 0.7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-smooth);
+}
+
+.view-all-link a:hover {
+    color: var(--accent-primary);
+    text-decoration: underline;
+}
+
+.loading-message, .error-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .home-content-area {
+        padding: 1.5rem 1rem;
+    }
 }
