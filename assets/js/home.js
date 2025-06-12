@@ -55,6 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Load the first 3 items from your JSON files
-    loadContent('/projects/projects.json', featuredProjectsContainer, 3);
-    loadContent('/blog/posts.json', latestPostsContainer, 3);
+    loadContent('/projects/projects.json', featuredProjectsContainer, 2);
+    loadContent('/blog/posts.json', latestPostsContainer, 2);
 });
