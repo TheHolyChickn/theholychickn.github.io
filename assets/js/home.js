@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const featuredProjectsContainer = document.getElementById('featuredProjectsContainer');
     const latestPostsContainer = document.getElementById('latestPostsContainer');
 
+    // This function creates the HTML for each featured item card
     const createFeaturedCard = (item) => {
         const cardLink = document.createElement('a');
         cardLink.href = item.link;
@@ -21,18 +22,17 @@ document.addEventListener('DOMContentLoaded', function () {
         return cardLink;
     };
 
+    // This function fetches data and populates the containers
     const loadContent = (url, container, count) => {
         fetch(url)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 return response.json();
             })
             .then(data => {
                 container.innerHTML = ''; // Clear "Loading..." message
 
-                // Sort blog posts by date, newest first
+                // Sort blog posts by date to get the latest
                 if (url.includes('posts.json')) {
                     data.sort((a, b) => new Date(b.date) - new Date(a.date));
                 }
@@ -40,24 +40,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 const itemsToShow = data.slice(0, count);
 
                 if (itemsToShow.length === 0) {
-                    container.innerHTML = '<p class="error-message">No items to display.</p>';
+                    container.innerHTML = '<p class="loading-message">No items to display.</p>';
                     return;
                 }
 
                 itemsToShow.forEach(item => {
-                    const card = createFeaturedCard(item);
-                    container.appendChild(card);
+                    container.appendChild(createFeaturedCard(item));
                 });
             })
             .catch(error => {
-                console.error(`Error fetching from ${url}:`, error);
-                container.innerHTML = `<p class="error-message">Could not load content.</p>`;
+                console.error(`Error loading content from ${url}:`, error);
+                container.innerHTML = `<p class="loading-message">Could not load content.</p>`;
             });
     };
 
-    // Assumes /projects/projects.json exists from our previous work
+    // Load the first 3 items from your JSON files
     loadContent('/projects/projects.json', featuredProjectsContainer, 3);
-
-    // Assumes /blog/posts.json exists from your blog setup
     loadContent('/blog/posts.json', latestPostsContainer, 3);
 });

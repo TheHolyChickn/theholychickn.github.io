@@ -1,59 +1,82 @@
 /* assets/css/home.css */
 
-.home-content-area {
-    padding: 2.5rem;
+/* Main container for the entire centered page layout */
+.home-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Header section with the main title and description */
+/* Unique Top Navigation for Homepage */
+.home-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.home-nav .nav-link {
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.home-nav .nav-link:hover {
+    color: var(--text-primary);
+}
+
+.home-nav .nav-link.active {
+    color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+}
+
+/* Header (Site Title and Description) */
 .home-header {
     text-align: center;
-    padding-bottom: 2.5rem;
-    margin-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border-color-subtle);
+    margin-bottom: 4rem;
 }
 
 .home-header .site-title {
     font-family: var(--font-title);
     font-weight: 700;
-    font-size: clamp(2.2rem, 8vw, 3.5rem);
+    font-size: clamp(2.5rem, 8vw, 4rem);
     color: var(--text-primary);
     margin-bottom: 1rem;
-    line-height: 1.2;
 }
 
 .home-header .site-description {
-    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
-.home-header .site-description a {
-    text-decoration: underline;
-    text-decoration-color: var(--accent-primary);
-    text-decoration-thickness: 1px;
-    text-underline-offset: 3px;
-    transition: color var(--transition-smooth), text-decoration-color var(--transition-smooth);
+/* Main Content Area */
+.home-main-content {
+    flex-grow: 1;
 }
 
-.home-header .site-description a:hover {
-    color: var(--accent-hover);
-    text-decoration-color: var(--accent-hover);
-}
-
-/* Featured Sections (for both Projects and Blog) */
+/* Featured Sections Styling (No dividers) */
 .featured-section {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem; /* Increased spacing for separation */
 }
 
 .featured-title {
     font-family: var(--font-title);
-    font-size: clamp(1.5rem, 4vw, 1.8rem);
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
     color: var(--text-primary);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border-color-subtle);
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .featured-grid {
@@ -62,30 +85,29 @@
     gap: 1.5rem;
 }
 
+/* Card Styling (re-using the good parts) */
 .featured-card {
     background-color: var(--bg-secondary);
-    border-radius: 6px;
+    border-radius: 8px;
     text-decoration: none;
     color: var(--text-primary);
-    border: 1px solid var(--border-color-subtle);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: 1px solid transparent; /* Transparent border to prevent layout shift on hover */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
-    padding: 1.25rem;
+    padding: 1.5rem;
 }
 
 .featured-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-primary);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: var(--border-color-subtle);
 }
 
 .featured-card-title {
     font-family: var(--font-title);
     font-size: var(--fs-h2-entry);
-    color: var(--text-primary);
     margin: 0 0 0.5rem 0;
-    line-height: 1.3;
 }
 
 .featured-card:hover .featured-card-title {
@@ -101,33 +123,35 @@
     flex-grow: 1;
 }
 
-.view-all-link {
-    text-align: right;
-    margin-top: 1.25rem;
-}
-
-.view-all-link a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color var(--transition-smooth);
-}
-
-.view-all-link a:hover {
-    color: var(--accent-primary);
-    text-decoration: underline;
-}
-
-.loading-message, .error-message {
-    grid-column: 1 / -1;
+/* Prominent "View All" Buttons */
+.view-all-container {
     text-align: center;
-    color: var(--text-muted);
-    font-size: var(--fs-base);
-    padding: 2rem;
+    margin-top: 2rem;
 }
 
-@media (max-width: 768px) {
-    .home-content-area {
-        padding: 1.5rem 1rem;
-    }
+.cta-button {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: var(--interactive-normal);
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-primary);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* Footer Styling */
+.site-footer {
+    text-align: center;
+    padding-top: 3rem;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
 }
