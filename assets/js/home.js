@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const latestPostsContainer = document.getElementById('latestPostsContainer');
 
     // This function creates the HTML for each featured item card
-    const createFeaturedCard = (item) => {
+    const createFeaturedCard = (item, tag) => {
         const cardLink = document.createElement('a');
-        cardLink.href = item.link;
+        cardLink.href = `${tag}/${item.link}`;
         cardLink.className = 'featured-card';
 
         const title = document.createElement('h3');
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // This function fetches data and populates the containers
-    const loadContent = (url, container, count) => {
+    const loadContent = (url, container, count, tag) => {
         fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 itemsToShow.forEach(item => {
-                    container.appendChild(createFeaturedCard(item));
+                    container.appendChild(createFeaturedCard(item, tag));
                 });
             })
             .catch(error => {
@@ -55,6 +55,6 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // Load the first 3 items from your JSON files
-    loadContent('/projects/projects.json', featuredProjectsContainer, 2);
-    loadContent('/blog/posts.json', latestPostsContainer, 2);
+    loadContent('/projects/projects.json', featuredProjectsContainer, 2, 'projects');
+    loadContent('/blog/posts.json', latestPostsContainer, 2, 'blog');
 });
