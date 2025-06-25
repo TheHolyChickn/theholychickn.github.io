@@ -41,21 +41,36 @@
             </header>
 
             <div class="article-content" id="mainArticleContent">
-                 <p>This page is still a work in progress, come back later!</p>
+                 <p>This page is still a work in progress, not all features stated herein exist yet!</p>
 
-                <!--<h2 id="section-one">First Section</h2>
-                <p>This is the first main section of the project page. The Table of Contents script will pick up this H2 heading and create a link to it in the sidebar.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.</p>
+                <h2 id="section-one">Overview and Features</h2>
+                <p>Good Mod is a Minecraft mod designed for <a href="https://hypixel.net/">Hypixel Skyblock</a>, a popular Minecraft RPG. The mod is designed to implement a small number of QOL features that are either not offered by other mainstream mods, are implemented poorly by other mainstream mods,
+                or are only done well by mods many people dislike due to performance issues.</p>
+                <p>The main feature is the profit calculator, which calculates profit for dungeon chests. Good Mod has arguably the best profit calculator, for a variety of reasons:</p>
+                <ul>
+                <li>A calculator determines whether or not kismetting a chest is worth based on expected value and current profit, and renders the GUI differently to inform the user of this;</li>
+                <li>The profit calculator determines whether using dungeon chest keys are worth, and renders a secondary square over the second best chest if it's worth;</li>
+                <li>The calculator is designed to work best in Croesus, but will still work inside individual chests, rendering in a similar style to SBE;</li>
+                <li>The API used to calculate profit is modular, meaning if one API goes down temporarily, the user can swap to another one. The API selection defaults to the Hypixel API to avoid putting unnecessary strain on independent developers' projects;</li>
+                <li>The user can manually select whether to use instasell or sell offer prices to compute profit (instabuy and buy offer, respectively, for chest keys), and these are selected <i>per item</i> as opposed to a universal toggle;</li>
+                <li>Renders a notification over chests/runs for which a kismet has already been used</li>
+                <li>Renders different colors in the main Croesus menu, indicating whether a chest has been opened. This rendering takes into account dungeon chest key logic.</li>
+                </ul>
+                <p>There are a small number of other nice features, such as a notification for when Croesus is close to full, a running counter of how many chests are stored in Croesus, and a running loot counter for your lifetime dungeon loot.</p>
 
-                <h3 id="subsection-a">Subsection A</h3>
-                <p>This is a subsection, which will be indented in the Table of Contents to show the hierarchy.</p>
+                <h2 id="section-two">Developer Information</h2>
+                <p>Good Mod is written in Kotlin. Obligiatory shoutout to my good friend <a href="https://github.com/odtheking">Odtheking</a>, owner of <a href="https://github.com/odtheking/Odin">Odin/OdinClient</a> for porting my mod from Java to Kotlin. The funniest part is when I originally coded
+                my mod, I intentionally named my variables very poorly; for example I called a config menu <code>AwA</code> and I called a font renderer object <code>qualcommSnapDragon</code>. Because funny or something, and also because I didn't expect to expand my mod as much as I did.
+                He went through the entire thing and fixed (most of) the variable names, so thanks Od! Go check out his mod; it has both a cheat and a legit version, Odin and OdinClient, respectively.</p>
 
-                <h2 id="section-two">Second Section</h2>
-                <p>Here is another major section. This helps to demonstrate how the Table of Contents populates with multiple entries, allowing for easy navigation through longer project descriptions.</p>
-                <pre><code class="language-javascript">// Example code block
-function greet() {
-    console.log("Hello, world!");
-}</code></pre>-->
+                <p>I'm not a developer so don't expect any of the code to be good if you decide to look at it. I would prefer to query updated prices on checking each chest, but unfortunately this is just not feasable without creating my own massive server. Third party APIs don't in general update fast enough
+                for there to be any change, and working directly with the Hypixel API is much more difficult, due to the sheer volume of information to be parsed. I run a protocol to update sell prices for dungeon items every 30 minutes, and when running this via the Hypixel API, it can easily take 20-40
+                seconds. Most of this is parsing the <i>entire auction house</i>.</p>
+
+                <p>To keep a running counter of Croesus chests, I need to access Hypixel's profile API endpoint on login, but this requires an API key. To get around this issue, I had to make my own server, [which i havent done yet finish this later]. I post the user's Minecraft UUID to my server because
+                I think data is interesting.</p>
+
+                <p>After initially accessing the user's Croesus data, I store a local variable containing the Croesus information, and manually update it based on certain events. This also includes kismet data.</p>
 
             </div>
         </article>
