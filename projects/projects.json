@@ -1,17 +1,17 @@
 [
   {
-    "title": "Placeholder Project",
-    "description": "This is a sample project to demonstrate the card layout. Clicking on this card will take you to a dedicated page with a table of contents, just like a blog post.",
-    "link": "posts/placeholder-project.html"
+    "title": "Good Mod",
+    "description": "Good Mod is a 1.8.9 Minecraft mod, specifically a niche QOL mod for Hypixel Skyblock. Good Mod implements the best profit calculator for Dungeons, as well as a small number of other features.",
+    "link": "posts/good-mod.html"
   },
   {
-    "title": "Another Cool Project",
-    "description": "A description of another awesome project. This card showcases how the grid layout handles multiple items, adapting to screen size.",
-    "link": "#"
+    "title": "LaTeX Hub",
+    "description": "LaTeX Hub is a linux-based application that streamlines LaTeX project management for classes and academic projects. The application implements dynamic snippet loading, easy preamble modulation, git integration, course assignments, and more.",
+    "link": "posts/latex-hub.html"
   },
   {
-    "title": "My Minecraft Mod",
-    "description": "Information about the Minecraft mod I've worked on. This project has its own detailed page with documentation and download links.",
-    "link": "#"
+    "title": "LaTeX Snippets",
+    "description": "A repository of my snippets used for editing LaTeX files. Implemented with LuaSnip.",
+    "link": "posts/snippets.html"
   }
 ]
