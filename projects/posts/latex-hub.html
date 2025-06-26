@@ -44,14 +44,21 @@
       <div class="article-content" id="mainArticleContent">
         <p>This page is still a work in progress, come back later!</p>
 
-        <p>Obligatory credit to the late <a href="https://castel.dev">Gilles Castel</a> for sharing his LaTeX setup, which served both as inspiration, and as a foundation for this project. Rest in peace king.</p>
+        <p>Obligatory credit to the late <a href="https://castel.dev">Gilles Castel</a> for sharing his LaTeX setup, which served both as inspiration and as a foundation for this project. Rest in peace king.</p>
         <!--<h2 id="section-one">Overview</h2>
+        <p>LaTeX hub is a Linux based application that makes working with projects and course files in LaTeX extremely easy, even for those with little to no programming experience.</p>
+        <p>All the original functionality of Gilles Castel's setup is included, including commands to create/edit lecture files, initiate course files, dynamically switch the active course based on a Google calendar, and so on. Read his <a href="https://castel.dev/post/lecture-notes-3/">third blog post</a>
+          for a better description of these features (or just read the project's <a href="https://github.com/TheHolyChickn/latex-hub/wiki/Documentation">documentation</a>, which is honestly better). His setup also includes an extension I made to manage homework assignments. The cli-based
+          implementation has been kept, and all gui elements that will be discussed later are <i>in addition to</i> the cli implementation.</p>
+        <p>The functionality of the project also extends to  "LaTeX projects", which are basically files other than lecture notes. </p>
 
-        <h3 id="subsection-a">Subsection A</h3>
-        <p>This is a subsection, which will be indented in the Table of Contents to show the hierarchy.</p>
+        <h3 id="subsection-a">Customization</h3>
 
-        <h2 id="section-two">Second Section</h2>
-        <p>Here is another major section. This helps to demonstrate how the Table of Contents populates with multiple entries, allowing for easy navigation through longer project descriptions.</p>
+        <h2 id="section-two">Developer's Remarks</h2>
+        <p>I didn't originally intend to release the project publicly, so I was (and am still not) worried about cross-platform compatibility. I use Linux, and am only concerned with compatibility within Linux. I have some familiarity working with Gtk widgets, so with all this in mind, I decided
+          to make the Gui with Gtk, and ended up choosing to implement it in JavaScript. I have absolutely no knowledge of JavaScript, so a <i>lot</i> of the code is AI generated, and the parts written by me are likely much worse. If you would like to modify the code yourself, proceed with caution
+          I guess.</p>
+
         <pre><code class="language-javascript">// Example code block
 function greet() {
     console.log("Hello, world!");
