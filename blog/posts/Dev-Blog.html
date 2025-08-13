@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <link rel="stylesheet" href="/assets/css/blog.css">
+  <link rel="stylesheet" href="/assets/css/post.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐔</text></svg>">
+
+  <title>theholychickn-blog-3</title>
+</head>
+<body>
+<div class="site-wrapper">
+  <aside class="sidebar-nav">
+    <div class="sidebar-header">
+      <a href="/index.html" class="site-logo-link">TheHolyChickn</a>
+    </div>
+    <nav class="main-navigation">
+      <ul>
+        <li><a href="/index.html" class="nav-item">Home</a></li>
+        <li><a href="/about/index.html" class="nav-item">About</a></li>
+        <li><a href="/projects/index.html" class="nav-item">Projects</a></li>
+        <li><a href="/blog/index.html" class="nav-item">Blog</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-section-title-container"> <h2 class="sidebar-section-title">Table of Contents</h2> </div>
+    <nav class="toc-navigation" id="tableOfContentsContainer">
+    </nav>
+    <footer class="sidebar-footer">
+      <p>&copy; The Holy Chicken<span id="year"></span></p> </footer>
+  </aside>
+
+  <main class="blog-content-area">
+    <article class="article-content-wrapper">
+      <header class="article-header">
+        <h1 class="article-title">Dev Blog</h1>
+        <p class="article-meta">
+          <span>June 27th, 2025</span>
+          <span>&bull; Tags: LaTeX, Developing, Coding</span>
+        </p>
+      </header>
+
+      <div class="article-content" id="mainArticleContent">
+        <h2 id="latex-hub">LaTeX Hub</h2>
+        <p><b>June 26th.</b> Currently working on replicating Castel's <code>countdown.py</code> in my <code>Countdown.js</code>. I barely understand his code, and absolutely don't understand the ChatGPT-fueled mess that my code has become. Although it's cool that people like me who don't have
+        formal training in coding and stuff can now make projects like this much more easily with resources like ChatGPT, I've definitely started overrelying on it for this project, and need to start walking back my usage of it.</p>
+        <p><b>June 27th.</b> Basically finished porting Castel's code to JS, doing a live test run on my own setup now. Stuff pmuch works. Haven't tested InitAllCourses, will do after GUI. I think GUI is next, then project backend, then project integration via gui. thinking about replacing rofi with custom menus,
+        maybe i can pro-con it. note that for rofi, to replace Ctrl+n with kb-custom-1, you have to pass <code>'-kb-row-down', 'Down'</code> to specify down only goes to down arrow, freeing up Ctrl+n. hit an issue with the lecture view feature, which honestly idgaf about but im keeping for the
+        sake of completion. it works fine in a terminal but breaks when executed from a hyprland keybind, and i assume the same for other WMs/DEs. i remember seeing an issue like this before in a diff project, but i think the solution here is prolly easier. maybe try just using pdflatex or smt idk ill do it later.</p>
+        <p><b>August 13th.</b> Took some time off to do some math. Castel's setup works, made a primitive gui, and am adding functionality to the gui. I wanna finish the GUI and relevant parts of the CLI before going back to school. i got osme other ideas but they wont be possible till i get a break in school.</p>
+      </div>
+    </article>
+  </main>
+</div>
+
+<script src="/assets/js/year.js"></script>
+<script src="/assets/js/toc.js"></script>
+</body>
+</html>
